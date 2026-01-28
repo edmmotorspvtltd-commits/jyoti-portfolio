@@ -6,17 +6,17 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Email service helper
 async function sendConfirmationEmail(to: string, name: string) {
-    if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM_EMAIL) {
-        console.warn('Resend not configured - skipping confirmation email');
-        return false;
-    }
+  if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM_EMAIL) {
+    console.warn('Resend not configured - skipping confirmation email');
+    return false;
+  }
 
-    try {
-        const { data, error } = await resend.emails.send({
-            from: process.env.RESEND_FROM_EMAIL,
-            to: to,
-            subject: 'Thank you for reaching out!',
-            html: `
+  try {
+    const { data, error } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL,
+      to: to,
+      subject: 'Thank you for reaching out!',
+      html: `
             <!DOCTYPE html>
             <html>
               <head>
@@ -48,34 +48,34 @@ async function sendConfirmationEmail(to: string, name: string) {
               </body>
             </html>
             `,
-        });
+    });
 
-        if (error) {
-            console.error('Resend error:', error);
-            return false;
-        }
-
-        console.log('Confirmation email sent:', data);
-        return true;
-    } catch (error) {
-        console.error('Error sending confirmation email:', error);
-        return false;
+    if (error) {
+      console.error('Resend error:', error);
+      return false;
     }
+
+    console.log('Confirmation email sent:', data);
+    return true;
+  } catch (error) {
+    console.error('Error sending confirmation email:', error);
+    return false;
+  }
 }
 
 // Send notification email to site owner
 async function sendNotificationEmail(formData: any) {
-    if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM_EMAIL || !process.env.RESEND_TO_EMAIL) {
-        console.warn('Resend not configured - skipping notification email');
-        return false;
-    }
+  if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM_EMAIL || !process.env.RESEND_TO_EMAIL) {
+    console.warn('Resend not configured - skipping notification email');
+    return false;
+  }
 
-    try {
-        const { data, error } = await resend.emails.send({
-            from: process.env.RESEND_FROM_EMAIL,
-            to: process.env.RESEND_TO_EMAIL,
-            subject: `New Contact Form Submission from ${formData.name}`,
-            html: `
+  try {
+    const { data, error } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL,
+      to: process.env.RESEND_TO_EMAIL,
+      subject: `New Contact Form Submission from ${formData.name}`,
+      html: `
             <!DOCTYPE html>
             <html>
               <head>
@@ -120,110 +120,110 @@ async function sendNotificationEmail(formData: any) {
               </body>
             </html>
             `,
-        });
+    });
 
-        if (error) {
-            console.error('Resend notification error:', error);
-            return false;
-        }
-
-        console.log('Notification email sent:', data);
-        return true;
-    } catch (error) {
-        console.error('Error sending notification email:', error);
-        return false;
+    if (error) {
+      console.error('Resend notification error:', error);
+      return false;
     }
+
+    console.log('Notification email sent:', data);
+    return true;
+  } catch (error) {
+    console.error('Error sending notification email:', error);
+    return false;
+  }
 }
 
 // Google Sheets helper
 async function sendToGoogleSheets(data: any) {
-    const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK;
+  const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK;
 
-    if (!webhookUrl) {
-        console.warn('Google Sheets webhook URL not configured');
-        return false;
+  if (!webhookUrl) {
+    console.warn('Google Sheets webhook URL not configured');
+    return false;
+  }
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...data,
+        timestamp: new Date().toISOString(),
+      }),
+    });
+
+    if (response.ok) {
+      console.log('Data sent to Google Sheets successfully');
+      return true;
+    } else {
+      console.error('Google Sheets response not OK:', response.status);
+      return false;
     }
-
-    try {
-        const response = await fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                ...data,
-                timestamp: new Date().toISOString(),
-            }),
-        });
-
-        if (response.ok) {
-            console.log('Data sent to Google Sheets successfully');
-            return true;
-        } else {
-            console.error('Google Sheets response not OK:', response.status);
-            return false;
-        }
-    } catch (error) {
-        console.error('Error sending to Google Sheets:', error);
-        return false;
-    }
+  } catch (error) {
+    console.error('Error sending to Google Sheets:', error);
+    return false;
+  }
 }
 
 export async function POST(request: NextRequest) {
-    try {
-        const body = await request.json();
-        const { name, email, phone, messageType, message } = body;
+  try {
+    const body = await request.json();
+    const { name, email, phone, messageType, message } = body;
 
-        // Validation
-        if (!name || !email || !message) {
-            return NextResponse.json(
-                { error: 'Name, email, and message are required' },
-                { status: 400 }
-            );
-        }
-
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            return NextResponse.json(
-                { error: 'Invalid email address' },
-                { status: 400 }
-            );
-        }
-
-        const formData = {
-            name,
-            email,
-            phone: phone || 'Not provided',
-            messageType,
-            message,
-        };
-
-        // Send to Google Sheets (non-blocking)
-        sendToGoogleSheets(formData).catch(err =>
-            console.error('Google Sheets error:', err)
-        );
-
-        // Send notification email to site owner (non-blocking)
-        sendNotificationEmail(formData).catch(err =>
-            console.error('Notification email error:', err)
-        );
-
-        // Send confirmation email to user (non-blocking)
-        sendConfirmationEmail(email, name).catch(err =>
-            console.error('Confirmation email error:', err)
-        );
-
-        return NextResponse.json({
-            success: true,
-            message: 'Message received successfully! Check your email for confirmation.',
-        });
-
-    } catch (error) {
-        console.error('Contact form error:', error);
-        return NextResponse.json(
-            { error: 'Failed to process your request. Please try again.' },
-            { status: 500 }
-        );
+    // Validation
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: 'Name, email, and message are required' },
+        { status: 400 }
+      );
     }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email address' },
+        { status: 400 }
+      );
+    }
+
+    const formData = {
+      name,
+      email,
+      phone: phone || 'Not provided',
+      messageType,
+      message,
+    };
+
+    // Send to Google Sheets (non-blocking)
+    sendToGoogleSheets(formData).catch(err =>
+      console.error('Google Sheets error:', err)
+    );
+
+    // Send notification email to site owner (non-blocking)
+    sendNotificationEmail(formData).catch(err =>
+      console.error('Notification email error:', err)
+    );
+
+    // Send confirmation email to user (non-blocking)
+    sendConfirmationEmail(email, name).catch(err =>
+      console.error('Confirmation email error:', err)
+    );
+
+    return NextResponse.json({
+      success: true,
+      message: 'Message received successfully! Check your email for confirmation.',
+    });
+
+  } catch (error) {
+    console.error('Contact form error:', error);
+    return NextResponse.json(
+      { error: 'Failed to process your request. Please try again.' },
+      { status: 500 }
+    );
+  }
 }
