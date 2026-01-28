@@ -1,0 +1,119 @@
+.section {
+    padding: var(--spacing-4xl) 0;
+    background: linear-gradient(135deg, var(--color-rose-600), var(--color-amber-600));
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--color-rose-600) 0%, var(--color-amber-600) 50%, var(--color-rose-600) 100%);
+    opacity: 0.9;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: var(--font-size-5xl);
+    font-weight: 700;
+    color: white;
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-heading);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: var(--font-size-3xl);
+    }
+}
+
+.subtitle {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .subtitle {
+        font-size: var(--font-size-base);
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .buttons {
+        flex-direction: row;
+    }
+}
+
+.primaryButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    background: white;
+    color: var(--color-rose-600);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 9999px;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-xl);
+}
+
+.primaryButton:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-2xl);
+}
+
+.secondaryButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 9999px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.secondaryButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: var(--spacing-3xl) 0;
+    }
+}

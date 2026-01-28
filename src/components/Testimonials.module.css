@@ -1,0 +1,183 @@
+.section {
+    padding: var(--spacing-4xl) 0;
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.title {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-accent-gold), var(--color-accent-gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.navButton {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-3xl);
+    color: var(--color-accent-gold);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.navButton:hover {
+    background: var(--color-accent-gold);
+    color: var(--color-bg-primary);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-gold);
+}
+
+.testimonialCard {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-3xl);
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.star {
+    color: var(--color-accent-gold);
+    font-size: var(--font-size-2xl);
+}
+
+.quote {
+    font-size: var(--font-size-xl);
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    font-style: italic;
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.authorInfo {
+    text-align: center;
+}
+
+.authorName {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.authorRole {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+}
+
+.company {
+    color: var(--color-accent-gold);
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xl);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-border);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.dot:hover {
+    background: var(--color-accent-gold);
+    transform: scale(1.2);
+}
+
+.activeDot {
+    background: var(--color-accent-gold);
+    width: 30px;
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        gap: var(--spacing-md);
+    }
+
+    .navButton {
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-size-2xl);
+    }
+
+    .testimonialCard {
+        padding: var(--spacing-xl);
+        min-height: 350px;
+    }
+
+    .quote {
+        font-size: var(--font-size-lg);
+    }
+
+    .title {
+        font-size: var(--font-size-3xl);
+    }
+}

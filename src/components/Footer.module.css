@@ -1,0 +1,117 @@
+.footer {
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    margin-top: var(--spacing-3xl);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    background: linear-gradient(135deg, var(--color-rose-600), var(--color-amber-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-sm);
+}
+
+.description {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    width: fit-content;
+}
+
+.link:hover {
+    color: var(--color-rose-600);
+    transform: translateX(5px);
+}
+
+.socialLinks {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.socialLink {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    width: fit-content;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.socialLink svg {
+    font-size: 1.2em;
+    flex-shrink: 0;
+}
+
+.socialLink::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: all var(--transition-fast);
+    color: var(--color-rose-600);
+}
+
+.socialLink:hover {
+    color: var(--color-rose-600);
+    padding-left: 25px;
+}
+
+.socialLink:hover::before {
+    opacity: 1;
+    left: 0;
+}
+
+.bottom {
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.copyright {
+    color: var(--color-text-tertiary);
+    font-size: var(--font-size-sm);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+}
