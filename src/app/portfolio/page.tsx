@@ -9,6 +9,11 @@ import { portfolioItems } from '@/data/portfolio';
 import { categories } from '@/data/categories';
 import styles from './page.module.css';
 
+// Set page title dynamically
+if (typeof document !== 'undefined') {
+    document.title = 'Portfolio | Jyoti Soni Model';
+}
+
 export default function PortfolioPage() {
     const [selectedCategory, setSelectedCategory] = useState('all');
 

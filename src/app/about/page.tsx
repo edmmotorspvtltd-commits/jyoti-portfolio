@@ -3,6 +3,11 @@ import Footer from '@/components/Footer';
 import { siteConfig } from '@/data/config';
 import styles from './page.module.css';
 
+export const metadata = {
+    title: 'About | Jyoti Soni Model',
+    description: 'Learn more about Jyoti Soni - Professional model specializing in Indian fashion, bridal wear, and ethnic styling.',
+};
+
 export default function AboutPage() {
     return (
         <>

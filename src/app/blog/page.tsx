@@ -6,8 +6,8 @@ import { blogPosts } from '@/data/blog';
 import styles from './page.module.css';
 
 export const metadata = {
-    title: 'Blog - Modeling Tips, Career Advice & Behind the Scenes',
-    description: 'Read about modeling tips, career advice, photography insights, and behind-the-scenes stories from a professional model.',
+    title: 'Blog | Jyoti Soni Model',
+    description: 'Read about modeling tips, career advice, photography insights, and behind-the-scenes stories from professional model Jyoti Soni.',
 };
 
 export default function BlogPage() {

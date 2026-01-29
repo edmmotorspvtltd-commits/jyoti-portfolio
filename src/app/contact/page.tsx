@@ -8,6 +8,11 @@ import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import { siteConfig } from '@/data/config';
 import styles from './page.module.css';
 
+// Set page title dynamically
+if (typeof document !== 'undefined') {
+    document.title = 'Contact | Jyoti Soni Model';
+}
+
 export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: '',
