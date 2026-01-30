@@ -1,17 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import { siteConfig } from '@/data/config';
 import styles from './page.module.css';
-
-// Set page title dynamically
-if (typeof document !== 'undefined') {
-    document.title = 'Contact | Jyoti Soni Model';
-}
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -23,6 +18,10 @@ export default function ContactPage() {
     });
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        document.title = 'Contact | Jyoti Soni Model';
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
@@ -9,13 +9,12 @@ import { portfolioItems } from '@/data/portfolio';
 import { categories } from '@/data/categories';
 import styles from './page.module.css';
 
-// Set page title dynamically
-if (typeof document !== 'undefined') {
-    document.title = 'Portfolio | Jyoti Soni Model';
-}
-
 export default function PortfolioPage() {
     const [selectedCategory, setSelectedCategory] = useState('all');
+
+    useEffect(() => {
+        document.title = 'Portfolio | Jyoti Soni Model';
+    }, []);
 
     const filteredItems = selectedCategory === 'all'
         ? portfolioItems

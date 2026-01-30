@@ -1,7 +1,8 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Hero from '@/components/Hero';
+import HeroCarousel from '@/components/HeroCarousel';
 import Stats from '@/components/Stats';
+import FeaturedIn from '@/components/FeaturedIn';
 import Testimonials from '@/components/Testimonials';
 import VideoShowcase from '@/components/VideoShowcase';
 import InstagramFeed from '@/components/InstagramFeed';
@@ -18,10 +19,13 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        <Hero />
+        <HeroCarousel />
 
         {/* Stats Section */}
         <Stats />
+
+        {/* Featured In Section - Press & Publications */}
+        <FeaturedIn />
 
         {/* Full-Width Showcase Images */}
         <section className={styles.showcaseSection}>
