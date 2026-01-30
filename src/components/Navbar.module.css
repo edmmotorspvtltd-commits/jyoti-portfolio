@@ -131,6 +131,11 @@
         pointer-events: all;
     }
 
+    .navLinks.open .navLink {
+        color: var(--color-text-primary);
+        text-shadow: none;
+    }
+
     .navLink {
         font-size: var(--font-size-lg);
     }

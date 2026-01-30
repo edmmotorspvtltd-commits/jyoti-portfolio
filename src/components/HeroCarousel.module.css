@@ -37,7 +37,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
@@ -188,28 +188,84 @@
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
-        min-height: 500px;
+        min-height: 100vh;
+    }
+
+    .content {
+        padding: 0 16px;
     }
 
     .title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
     }
 
     .subtitle {
-        font-size: 0.875rem;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
     }
 
     .description {
-        font-size: 1rem;
-        padding: 0 20px;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        padding: 0;
+        margin-bottom: 25px;
+        max-width: 95%;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .buttons {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
+    }
+
+    .buttons :global(.btn) {
+        padding: 10px 24px;
+        font-size: 0.875rem;
+        min-width: 160px;
     }
 
     .indicators {
-        bottom: 60px;
+        bottom: 85px;
+        gap: 6px;
+    }
+
+    .indicator {
+        width: 6px;
+        height: 6px;
+        border-width: 1px;
+    }
+
+    .activeIndicator {
+        width: 20px;
+    }
+
+    .scrollIndicator {
+        bottom: 30px;
+    }
+
+    .scrollText {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 6px;
+    }
+
+    .scrollIcon {
+        font-size: 1rem;
+    }
+
+    .mainImage {
+        padding: 0;
+    }
+
+    .blurredBackground {
+        transform: scale(1.2);
     }
 }
