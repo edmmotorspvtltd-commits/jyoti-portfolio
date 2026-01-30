@@ -38,7 +38,7 @@ export default function HeroCarousel() {
                             fill
                             priority={index === 0}
                             sizes="100vw"
-                            style={{ objectFit: 'cover' }}
+                            style={{ objectFit: 'contain', objectPosition: 'center' }}
                         />
                     </div>
                 ))}
