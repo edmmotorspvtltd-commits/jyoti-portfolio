@@ -32,14 +32,27 @@ export default function HeroCarousel() {
                         key={index}
                         className={`${styles.slide} ${index === currentSlide ? styles.active : ''}`}
                     >
-                        <Image
-                            src={image}
-                            alt={`Jyoti Soni - Slide ${index + 1}`}
-                            fill
-                            priority={index === 0}
-                            sizes="100vw"
-                            style={{ objectFit: 'contain', objectPosition: 'center' }}
-                        />
+                        {/* Blurred background */}
+                        <div className={styles.blurredBackground}>
+                            <Image
+                                src={image}
+                                alt=""
+                                fill
+                                sizes="100vw"
+                                style={{ objectFit: 'cover', filter: 'blur(40px)', transform: 'scale(1.1)' }}
+                            />
+                        </div>
+                        {/* Main image */}
+                        <div className={styles.mainImage}>
+                            <Image
+                                src={image}
+                                alt={`Jyoti Soni - Slide ${index + 1}`}
+                                fill
+                                priority={index === 0}
+                                sizes="(max-width: 768px) 100vw, 70vw"
+                                style={{ objectFit: 'contain', objectPosition: 'center' }}
+                            />
+                        </div>
                     </div>
                 ))}
                 <div className={styles.overlay}></div>

@@ -20,55 +20,87 @@
     inset: 0;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
 }
 
 .slide.active {
     opacity: 1;
 }
 
+.blurredBackground {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.blurredBackground::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.mainImage {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+}
+
 .overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
             rgba(0, 0, 0, 0.5) 100%);
-    z-index: 2;
+    z-index: 3;
 }
 
 /* Content */
 .content {
     position: relative;
-    z-index: 3;
+    z-index: 4;
     text-align: center;
     color: white;
     padding: 0 20px;
 }
 
 .title {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    font-family: var(--font-serif);
-    text-transform: lowercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    font-size: 4.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', var(--font-serif), serif;
+    text-transform: capitalize;
+    letter-spacing: 4px;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.9);
+    color: #f8f8f8;
 }
 
 .subtitle {
-    font-size: 1.125rem;
-    font-weight: 600;
-    letter-spacing: 3px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 4px;
     margin-bottom: 24px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);
+    color: #e0e0e0;
+    text-transform: uppercase;
+    font-family: 'Montserrat', -apple-system, sans-serif;
 }
 
 .description {
-    font-size: 1.125rem;
+    font-size: 1.05rem;
     line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    max-width: 750px;
+    margin: 0 auto 45px;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);
+    color: #f0f0f0;
+    font-weight: 300;
+    font-family: 'Lora', Georgia, serif;
 }
 
 .buttons {
@@ -81,12 +113,12 @@
 /* Carousel Indicators */
 .indicators {
     position: absolute;
-    bottom: 80px;
+    bottom: 120px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 12px;
-    z-index: 4;
+    z-index: 5;
 }
 
 .indicator {
@@ -116,7 +148,7 @@
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    z-index: 4;
+    z-index: 5;
     color: white;
 }
 

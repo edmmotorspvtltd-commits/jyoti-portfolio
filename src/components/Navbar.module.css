@@ -54,10 +54,16 @@
 .navLink {
     font-size: var(--font-size-base);
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
     position: relative;
     transition: color var(--transition-fast);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.navbar.scrolled .navLink {
+    color: var(--color-text-secondary);
+    text-shadow: none;
 }
 
 .navLink::after {
