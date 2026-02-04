@@ -6,10 +6,10 @@ import Link from 'next/link';
 import styles from './HeroCarousel.module.css';
 
 const heroImages = [
-    '/images/hero/hero-1.jpg',
-    '/images/hero/hero-2.jpg',
-    '/images/hero/hero-3.jpg',
-    '/images/hero/hero-4.jpg'
+    '/api/images/hero/hero-1.jpg',
+    '/api/images/hero/hero-2.jpg',
+    '/api/images/hero/hero-3.jpg',
+    '/api/images/hero/hero-4.jpg'
 ];
 
 export default function HeroCarousel() {

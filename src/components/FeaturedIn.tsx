@@ -6,42 +6,42 @@ const features = [
     {
         id: 1,
         name: 'Vogue India',
-        logo: '/images/press/vogue-logo.png', // You'll add these logos
+        logo: '/api/images/press/vogue-logo.png', // You'll add these logos
         blogSlug: 'featured-in-vogue-india',
         description: 'Featured in Vogue India Fashion Editorial'
     },
     {
         id: 2,
         name: 'Lakme Fashion Week',
-        logo: '/images/press/lakme-logo.png',
+        logo: '/api/images/press/lakme-logo.png',
         blogSlug: 'lakme-fashion-week-2024',
         description: 'Walked the runway at Lakme Fashion Week'
     },
     {
         id: 3,
         name: 'Elle India',
-        logo: '/images/press/elle-logo.png',
+        logo: '/api/images/press/elle-logo.png',
         blogSlug: 'elle-india-bridal-feature',
         description: 'Bridal feature in Elle India'
     },
     {
         id: 4,
         name: 'Cosmopolitan',
-        logo: '/images/press/cosmo-logo.png',
+        logo: '/api/images/press/cosmo-logo.png',
         blogSlug: 'cosmopolitan-beauty-feature',
         description: 'Beauty editorial in Cosmopolitan'
     },
     {
         id: 5,
         name: 'Grazia India',
-        logo: '/images/press/grazia-logo.png',
+        logo: '/api/images/press/grazia-logo.png',
         blogSlug: 'grazia-fashion-spread',
         description: 'Fashion spread in Grazia India'
     },
     {
         id: 6,
         name: 'Harper\'s Bazaar',
-        logo: '/images/press/harpers-logo.png',
+        logo: '/api/images/press/harpers-logo.png',
         blogSlug: 'harpers-bazaar-cover',
         description: 'Cover feature in Harper\'s Bazaar'
     }

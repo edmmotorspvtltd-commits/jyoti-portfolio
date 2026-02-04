@@ -27,38 +27,6 @@ export default function Home() {
         {/* Featured In Section - Press & Publications */}
         <FeaturedIn />
 
-        {/* Full-Width Showcase Images */}
-        <section className={styles.showcaseSection}>
-          <div className={styles.showcaseImage}>
-            <Image
-              src="/images/fashion/RAJ02594.JPG"
-              alt="Fashion showcase"
-              fill
-              sizes="100vw"
-              style={{ objectFit: 'cover' }}
-              priority
-            />
-            <div className={styles.showcaseOverlay}>
-              <h2 className={styles.showcaseTitle}>Fashion & Editorial</h2>
-              <p className={styles.showcaseText}>Bringing elegance to every frame</p>
-            </div>
-          </div>
-
-          <div className={styles.showcaseImage}>
-            <Image
-              src="/images/lifestyle/DSC08214.jpg"
-              alt="Lifestyle showcase"
-              fill
-              sizes="100vw"
-              style={{ objectFit: 'cover' }}
-            />
-            <div className={styles.showcaseOverlay}>
-              <h2 className={styles.showcaseTitle}>Lifestyle & Beauty</h2>
-              <p className={styles.showcaseText}>Authentic moments, timeless style</p>
-            </div>
-          </div>
-        </section>
-
         {/* Featured Work Section */}
         <section className={styles.featured}>
           <div className="container">
@@ -72,7 +40,7 @@ export default function Home() {
             <div className={styles.grid}>
               {featuredItems.slice(0, 6).map((item) => (
                 <Link
-                  href="/portfolio"
+                  href={`/portfolio?category=${item.category}`}
                   key={item.id}
                   className={styles.card}
                 >
@@ -108,11 +76,11 @@ export default function Home() {
         {/* Testimonials Section - What People Say */}
         <Testimonials />
 
-        {/* CTA Banner - Ready to Create Magic */}
-        <CTABanner />
-
         {/* Instagram Feed Section */}
         <InstagramFeed />
+
+        {/* CTA Banner - Ready to Create Magic */}
+        <CTABanner />
       </main>
       <Footer />
     </>

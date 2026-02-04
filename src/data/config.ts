@@ -17,7 +17,8 @@ export const siteConfig = {
         twitter: '',
         facebook: '',
         linkedin: '',
-        tiktok: ''
+        tiktok: '',
+        youtube: ''
     },
 
     // Model Stats

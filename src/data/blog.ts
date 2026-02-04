@@ -57,7 +57,7 @@ The journey continues, and I'm excited for what's ahead!
         date: '2024-01-15',
         category: 'Career',
         tags: ['modeling', 'career', 'journey', 'tips'],
-        image: '/images/fashion/DSC00070.JPG',
+        image: '/api/images/fashion/DSC00070.JPG',
         featured: true,
         readTime: '5 min read'
     },
@@ -98,7 +98,7 @@ The modeling industry is built on relationships. Be professional, kind, and easy
         date: '2024-01-10',
         category: 'Photography',
         tags: ['photography', 'fashion', 'tips', 'modeling'],
-        image: '/images/fashion/RAJ02594.JPG',
+        image: '/api/images/fashion/RAJ02594.JPG',
         featured: true,
         readTime: '4 min read'
     },
@@ -158,7 +158,7 @@ It's a demanding but rewarding career that I absolutely love!
         date: '2024-01-05',
         category: 'Lifestyle',
         tags: ['lifestyle', 'routine', 'modeling', 'wellness'],
-        image: '/images/lifestyle/DSC08214.jpg',
+        image: '/api/images/lifestyle/DSC08214.jpg',
         featured: true,
         readTime: '6 min read'
     },
@@ -219,7 +219,7 @@ Remember, your portfolio is a living document that grows with your career!
         date: '2024-01-20',
         category: 'Career',
         tags: ['portfolio', 'modeling', 'photography', 'career'],
-        image: '/images/fashion/DSC00313.JPG',
+        image: '/api/images/fashion/DSC00313.JPG',
         featured: true,
         readTime: '5 min read'
     }

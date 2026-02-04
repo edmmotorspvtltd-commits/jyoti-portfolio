@@ -39,5 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-public/images/
-!public/images/hero/
+
+# Private assets - images stored securely outside public folder
+/assets/

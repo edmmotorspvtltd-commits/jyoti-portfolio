@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
@@ -10,11 +11,18 @@ import { categories } from '@/data/categories';
 import styles from './page.module.css';
 
 export default function PortfolioPage() {
-    const [selectedCategory, setSelectedCategory] = useState('all');
+    const searchParams = useSearchParams();
+    const categoryParam = searchParams.get('category');
+    const [selectedCategory, setSelectedCategory] = useState(categoryParam || 'all');
 
     useEffect(() => {
         document.title = 'Portfolio | Jyoti Soni Model';
-    }, []);
+
+        // Update selected category if URL parameter changes
+        if (categoryParam && categoryParam !== selectedCategory) {
+            setSelectedCategory(categoryParam);
+        }
+    }, [categoryParam]);
 
     const filteredItems = selectedCategory === 'all'
         ? portfolioItems
