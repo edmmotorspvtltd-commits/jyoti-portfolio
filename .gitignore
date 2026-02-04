@@ -40,5 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Private assets - images stored securely outside public folder
+# Private assets - only hero images are committed
 /assets/
+!/assets/images/
+!/assets/images/hero/
