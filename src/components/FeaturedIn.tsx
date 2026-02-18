@@ -35,6 +35,17 @@ const features = [
         color: '#e63946',
         image: '/press/elite-miss-rajasthan.jpg',
     },
+    {
+        id: 4,
+        publication: 'Dainik Bhaskar',
+        category: 'Entertainment | Pageantry',
+        headline: 'Elite Miss Rajasthan 2025 Grand Finale',
+        description: 'Jaipur hosts the grand finale of Elite Miss Rajasthan 2025 Season 12 — Jyoti Soni earns 5th Runner-up title in a spectacular evening of fashion, talent and glamour.',
+        date: 'December 22, 2025',
+        url: 'https://www.bhaskar.com/local/rajasthan/jaipur/news/the-grand-finale-of-elite-miss-rajasthan-2025-concluded-in-jaipur-136742239.html',
+        color: '#d62828',
+        image: '/press/dainik-bhaskar-elite.jpg',
+    },
 ];
 
 export default function FeaturedIn() {
