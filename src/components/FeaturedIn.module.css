@@ -23,25 +23,14 @@
     margin: 0 auto;
 }
 
-/* Grid */
+/* Grid — Desktop: 3 columns */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
     max-width: 1200px;
     margin: 0 auto 48px;
-}
-
-@media (max-width: 900px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
+    padding: 0 16px;
 }
 
 /* Card */
@@ -186,22 +175,85 @@
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ── Tablet: 2 columns ── */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 800px;
+    }
+}
+
+/* ── Mobile: horizontal swipe carousel ── */
+@media (max-width: 640px) {
     .featuredIn {
-        padding: 60px 0;
+        padding: 48px 0;
+    }
+
+    .header {
+        margin-bottom: 36px;
+        padding: 0 20px;
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    /* Turn grid into a horizontal scroll container */
     .grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px;
+        padding: 8px 20px 24px;
+        margin: 0;
+        /* hide scrollbar but keep scrolling */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Each card: fixed width so 1.2 cards peek on screen */
+    .card {
+        flex: 0 0 78vw;
+        max-width: 320px;
+        scroll-snap-align: start;
+        border-radius: 14px;
     }
 
     .imageWrapper {
-        height: 220px;
+        height: 200px;
+    }
+
+    .cardBody {
+        padding: 16px 18px 18px;
+        gap: 6px;
+    }
+
+    .headline {
+        font-size: 1.1rem;
+    }
+
+    .description {
+        font-size: 0.85rem;
+        /* Limit to 3 lines on mobile */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .cardFooter {
+        margin-top: 8px;
+        padding-top: 10px;
     }
 }
