@@ -24,6 +24,17 @@ const features = [
         color: '#1a1a2e',
         image: '/press/power-and-prestige.webp',
     },
+    {
+        id: 3,
+        publication: 'GNT News',
+        category: 'Entertainment | Pageantry',
+        headline: 'Elite Miss Rajasthan 2025 Grand Finale',
+        description: 'Jyoti Soni shines as 5th Runner-up at the Elite Miss Rajasthan 2025 Season 12 Grand Finale — a spectacular celebration of beauty, talent and grace.',
+        date: 'December 23, 2025',
+        url: 'https://www.gnttv.com/entertainment/photo/elite-miss-rajasthan-2025-grand-finale-deboshmita-won-the-title-sks-1321247-2025-12-23-3',
+        color: '#e63946',
+        image: '/press/elite-miss-rajasthan.jpg',
+    },
 ];
 
 export default function FeaturedIn() {
