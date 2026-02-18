@@ -46,6 +46,17 @@ const features = [
         color: '#d62828',
         image: '/press/dainik-bhaskar-elite.jpg',
     },
+    {
+        id: 5,
+        publication: 'First India City First',
+        category: 'Lifestyle | Events',
+        headline: 'Pawfect Show',
+        description: '500+ Canine Stars take over Jaipur\'s Dusshera at the Grand Jaipur Dog Show 2026 — Jyoti Soni joins the celebration of beauty, breeds and animal love.',
+        date: 'January 12, 2026',
+        url: 'https://firstindia.co.in/epapers/city-first-jaipur/12012026',
+        color: '#c0392b',
+        image: '/press/pawfect-show.webp',
+    },
 ];
 
 export default function FeaturedIn() {
